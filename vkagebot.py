@@ -15,7 +15,7 @@ def mean_age(idi):
     mean_age_id = [] #create list
     mean_age = [] #create list
     age_number = [] #create list
-    token = '467a0777d6bcec84a35898eeedcae8a3831ee7329aff982ea2fdaf378c63f2d7ed84e968d94de5a819883' # ---> TOKEN <---
+    token = '' # ---> TOKEN <---
     r_mean_id = requests.get('https://api.vk.com/method/friends.get?user_id='+ str(idi) + '&v=5.52&fields=bdate&access_token=' + str(token)) # get id a man for whom we gonna predict age
     json_mean_id = r_mean_id.json() #get json of friends
     if (json_mean_id['response']['count'] != 0):
@@ -44,7 +44,7 @@ def mean_age(idi):
     age_number = [item for item in age_number if item < first_mean] # get rid of large values that can make our prediction worse
     mean = statistics.mean(age_number) #get mean from list
     return round(mean)
-token = '640421091:AAGUXYj-HAwPhZ8g0NvKQn7dO9JOkMw7UZ0'
+token = ''
 bot = telebot.TeleBot(token)
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
