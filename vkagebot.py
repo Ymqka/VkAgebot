@@ -33,10 +33,10 @@ def mean_age(idi):
     for item in mean_age: # loop through item in list of birthday
         if len(item) >= 7: # check if len of item more than 7, we do that, because we can have date without year, we don't need that
             while True:
-		try:
-		    dt_obj = datetime.datetime.strptime(item, '%d.%m.%Y') #convert string date to datetime date
-		    break
-		except ValueError:
+                try:
+                    dt_obj = datetime.datetime.strptime(item, '%d.%m.%Y') #convert string date to datetime date
+                    break
+                except ValueError:
                     break
             item_number = get_age(dt_obj) # use function get_age to get age from date
             age_number.append(item_number) # add item to list with ages
